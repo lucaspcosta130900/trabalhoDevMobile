@@ -14,7 +14,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Button botaoConfig=(Button) findViewById(R.id.buttonConfig);
-        Button botaoSair=(Button) findViewById(R.id.buttonSair);
+        Button botaoSair=(Button) findViewById(R.id.buttonGNSS);
+        Button botaoSobre=(Button) findViewById(R.id.buttonSobre);
+        Button botaoNavegacao=(Button) findViewById(R.id.buttonNavegacao);
         botaoConfig.setOnClickListener(this);
         botaoSair.setOnClickListener(this);
     }
@@ -25,7 +27,13 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonConfig:
                 startActivity(new Intent(this,ConfigActivity.class));
                 break;
-            case R.id.buttonSair:
+            case R.id.buttonGNSS:
+                finish();
+                break;
+            case R.id.buttonNavegacao:
+                finish();
+                break;
+            case R.id.buttonSobre:
                 finish();
                 break;
         }

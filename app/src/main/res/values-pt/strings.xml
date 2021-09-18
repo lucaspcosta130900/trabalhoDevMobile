@@ -5,9 +5,15 @@
     <string name="senhaTxtView_txt">Senha</string>
     <string name="EntrartextView_txt">Entrar</string>
     <string name="CancelTextView_txt">Cancelar</string>
-    <string name="buttonConfig_Txt">Configure</string>
+    <string name="buttonConfig_txt">Configure</string>
+    <string name="buttonNavegacao_txt">Navegação</string>
+    <string name="buttonGNSS_txt">GNSS</string>
     <string name="buttonSair_txt">Sair</string>
+    <string name="buttonSobre_txt">Sobre</string>
     <string name="blockActivityLabel">App Bloqueada</string>
-    <string name="BlockTextView_txt">Esta app foi permanentemente bloqueada por excessos de tentativas de login!</string>
+    <string name="sobreAplicacao_txt">Essa aplicação pode ser usada para ver um mapa com a localização em tempo real do usuário, com informações à respeito das coordenadas geográficas, velocidade, direção e muito mais! Você também pode configurar os tipos de dados exibidos na tela de configurações.</string>
+    <string name="tituloDesenvolvedores_txt">Desenvolvedores:</string>
+    <string name="nomeDesenvolvedores_txt">Lucas Paiva, Thiago Santos, Vitor Barretto, Alex Santos e Lucas de Mello </string>
+    <string name="tituloVersao_txt">v1.0 </string>
     <string name="buttonConfirma_txt">Confirma</string>
 </resources>

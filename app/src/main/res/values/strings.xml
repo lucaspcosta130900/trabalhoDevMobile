@@ -4,9 +4,15 @@
     <string name="senhaTxtView_txt">Password</string>
     <string name="EntrartextView_txt">Ok</string>
     <string name="CancelTextView_txt">Cancel</string>
-    <string name="buttonConfig_Txt">Config</string>
+    <string name="buttonConfig_txt">Config</string>
+    <string name="buttonNavegacao_txt">Navegation</string>
+    <string name="buttonGNSS_txt">GNSS</string>
     <string name="buttonSair_txt">Exit</string>
+    <string name="buttonSobre_txt">About</string>
     <string name="blockActivityLabel">App Blocked</string>
-    <string name="BlockTextView_txt">This app has been permanently blocked by excessive login attempts!</string>
+    <string name="sobreAplicacao_txt">This application can be used to see a map showing the user"s real-time location with information about geographic coordinates, speed, directions and much more! You can also preset the data types on configuration screen.</string>
+    <string name="tituloDesenvolvedores_txt">Developers: </string>
+    <string name="nomeDesenvolvedores_txt">Lucas Paiva, Thiago Santos, Vitor Barretto, Alex Santos e Lucas de Mello </string>
+    <string name="tituloVersao_txt">v1.0 </string>
     <string name="buttonConfirma_txt">Confirm</string>
 </resources>
