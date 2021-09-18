@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Practice 1</string>
+    <string name="usuarioTextView_txt">User</string>
+    <string name="senhaTxtView_txt">Password</string>
+    <string name="EntrartextView_txt">Ok</string>
+    <string name="CancelTextView_txt">Cancel</string>
+    <string name="buttonConfig_Txt">Config</string>
+    <string name="buttonSair_txt">Exit</string>
+    <string name="blockActivityLabel">App Blocked</string>
+    <string name="BlockTextView_txt">This app has been permanently blocked by excessive login attempts!</string>
+    <string name="buttonConfirma_txt">Confirm</string>
+</resources>

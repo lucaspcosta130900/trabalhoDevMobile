@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prática 1</string>
+    <string name="usuarioTextView_txt">Usuário</string>
+    <string name="senhaTxtView_txt">Senha</string>
+    <string name="EntrartextView_txt">Entrar</string>
+    <string name="CancelTextView_txt">Cancelar</string>
+    <string name="buttonConfig_Txt">Configure</string>
+    <string name="buttonSair_txt">Sair</string>
+    <string name="blockActivityLabel">App Bloqueada</string>
+    <string name="BlockTextView_txt">Esta app foi permanentemente bloqueada por excessos de tentativas de login!</string>
+    <string name="buttonConfirma_txt">Confirma</string>
+</resources>
