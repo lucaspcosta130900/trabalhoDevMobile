@@ -6,93 +6,175 @@
     android:layout_height="match_parent"
     tools:context=".ConfigActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/usuarioTextView_txt"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextChangeUser"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/editTextChangeUser" />
-
-    <EditText
-        android:id="@+id/editTextChangeUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.11" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10948905" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/senhaTxtView_txt"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextChangePassword"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/editTextChangePassword" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/senhaTxtView_txt"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextConfirmPassword"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextChangePassword" />
-
-    <EditText
-        android:id="@+id/editTextChangePassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextChangeUser" />
-
-    <EditText
-        android:id="@+id/editTextConfirmPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextChangePassword" />
-
     <Button
         android:id="@+id/buttonConfirmPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
         android:text="@string/buttonConfirma_txt"
+        app:backgroundTint="#05b7ff"
         app:layout_constraintEnd_toStartOf="@+id/buttonCancelPassword"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
+        tools:layout_editor_absoluteY="690dp" />
 
     <Button
         android:id="@+id/buttonCancelPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_width="142dp"
+        android:layout_height="40dp"
         android:text="@string/CancelTextView_txt"
+        app:backgroundTint="#05b7ff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
+        tools:layout_editor_absoluteY="690dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="356dp"
+        android:layout_height="149dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="53dp">
+
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grau Decimal"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="116dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grau-Minuto decimal"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="162dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="114dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grau-Minuto-Segundo decimal"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="221dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="162dp" />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="315dp"
+        android:layout_height="41dp"
+        android:text="Formato das apresentações coordenadas geográficas:"
+        android:textColor="#070707"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="4dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="154dp"
+        android:layout_height="24dp"
+        android:text="Orientação do Mapa:"
+        android:textColor="#090909"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="364dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="158dp"
+        android:layout_height="30dp"
+        android:text="Tipo do Mapa:"
+        android:textColor="#090909"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="548dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="303dp"
+        android:layout_height="33dp"
+        android:text="Unidade de apresentação da velocidade:"
+        android:textColor="#090909"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <RadioGroup
+        android:layout_width="359dp"
+        android:layout_height="99dp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="254dp">
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Km/h (quilometro por hora)" />
+
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mph (milhas por hora)" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="374dp"
+        android:layout_height="148dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="400dp">
+
+        <RadioButton
+            android:id="@+id/radioButton10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nenhuma( O usuário pode escolher manualmente a orientação do mapa)" />
+
+        <RadioButton
+            android:id="@+id/radioButton11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="North Up (Norte do mapa alinhado com o topo do dispositivo)" />
+
+        <RadioButton
+            android:id="@+id/radioButton12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CoursemUp (Topo do mapa alinhado com a direção do deslocamento (rumo-bearing)" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="354dp"
+        android:layout_height="101dp"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="589dp">
+
+        <RadioButton
+            android:id="@+id/radioButton13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vetorial" />
+
+        <RadioButton
+            android:id="@+id/radioButton14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Imagem de Satélite" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
