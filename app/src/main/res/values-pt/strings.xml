@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="graudecimal_txt">Grau Decimal</string>
+    <string name="degree_minute_txt">Grau-Minuto decimal</string>
     <string name="app_name">Prática 1</string>
     <string name="usuarioTextView_txt">Usuário</string>
     <string name="senhaTxtView_txt">Senha</string>

@@ -8,39 +8,46 @@
 
     <Button
         android:id="@+id/buttonConfirmPassword"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
+        android:layout_width="152dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="1dp"
         android:text="@string/buttonConfirma_txt"
         app:backgroundTint="#05b7ff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonCancelPassword"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="690dp" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup7" />
 
     <Button
         android:id="@+id/buttonCancelPassword"
         android:layout_width="142dp"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
         android:text="@string/CancelTextView_txt"
         app:backgroundTint="#05b7ff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonConfirmPassword"
-        tools:layout_editor_absoluteY="690dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="356dp"
-        android:layout_height="149dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="53dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup7"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grau Decimal"
+            android:text="@string/graudecimal_txt"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="116dp"
             tools:layout_editor_absoluteX="16dp"
@@ -50,7 +57,7 @@
             android:id="@+id/radioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grau-Minuto decimal"
+            android:text="@string/degree_minute_txt"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="162dp"
             tools:layout_editor_absoluteX="16dp"
@@ -72,52 +79,73 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="315dp"
-        android:layout_height="41dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="645dp"
         android:text="Formato das apresentações coordenadas geográficas:"
         android:textColor="#070707"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="4dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonCancelPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="154dp"
-        android:layout_height="24dp"
+        android:layout_width="376dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
         android:text="Orientação do Mapa:"
         android:textColor="#090909"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="364dp" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup5" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="158dp"
-        android:layout_height="30dp"
+        android:layout_width="176dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="11dp"
         android:text="Tipo do Mapa:"
         android:textColor="#090909"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="548dp" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup7"
+        app:layout_constraintEnd_toEndOf="@+id/buttonConfirmPassword"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup6"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup6" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="303dp"
-        android:layout_height="33dp"
+        android:layout_width="393dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
         android:text="Unidade de apresentação da velocidade:"
         android:textColor="#090909"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="211dp" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <RadioGroup
-        android:layout_width="359dp"
-        android:layout_height="99dp"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="254dp">
+        android:id="@+id/radioGroup5"
+        android:layout_width="374dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <RadioButton
             android:id="@+id/radioButton6"
@@ -134,10 +162,15 @@
     </RadioGroup>
 
     <RadioGroup
-        android:layout_width="374dp"
-        android:layout_height="148dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="400dp">
+        android:id="@+id/radioGroup6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <RadioButton
             android:id="@+id/radioButton10"
@@ -159,10 +192,16 @@
     </RadioGroup>
 
     <RadioGroup
-        android:layout_width="354dp"
-        android:layout_height="101dp"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="589dp">
+        android:id="@+id/radioGroup7"
+        android:layout_width="327dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <RadioButton
             android:id="@+id/radioButton13"
