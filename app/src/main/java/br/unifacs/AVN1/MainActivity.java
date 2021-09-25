@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_main);
         Button botaoConfig=(Button) findViewById(R.id.buttonConfig);
         Button botaoSair=(Button) findViewById(R.id.buttonGNSS);
         Button botaoSobre=(Button) findViewById(R.id.buttonSobre);

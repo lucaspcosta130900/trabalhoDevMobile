@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AVN1">
-        <activity android:name=".ConfigActivity"
-            android:label="@string/config_txt"></activity>
-        <activity android:name=".SobreActivity"
-            android:label="@string/about_txt"
-            />
+        <activity
+            android:name=".ConfigActivity"
+            android:label="@string/config_txt" />
+        <activity
+            android:name=".SobreActivity"
+            android:label="@string/about_txt" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
