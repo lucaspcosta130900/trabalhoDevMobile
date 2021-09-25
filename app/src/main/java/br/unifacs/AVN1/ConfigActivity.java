@@ -8,26 +8,24 @@ import android.widget.RadioButton;
 
 public class ConfigActivity extends AppCompatActivity {
 
-    private RadioButton radioDec, radioMinDec, radioKmh, radioMph, radioNone, radioNorthUp, radioVet, radioSat, radioMSDec, radioCourseUp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
         //Associando botoes de radio ||
-        radioDec = findViewById(R.id.radioBtnDec);
-        radioMinDec = findViewById(R.id.radioBtnMinDec);
-        radioKmh = findViewById(R.id.radioBtnKmh);
-        radioMph = findViewById(R.id.radioBtnMph);
-        radioNone = findViewById(R.id.radioBtnNone);
-        radioNorthUp = findViewById(R.id.radioBtnNorthUp);
-        radioNone = findViewById(R.id.radioBtnNone);
-        radioNorthUp = findViewById(R.id.radioBtnNorthUp);
-        radioVet = findViewById(R.id.radioBtnVet);
-        radioSat = findViewById(R.id.radioBtnSat);
-        radioMSDec = findViewById(R.id.radioBtnMSDec);
-        radioCourseUp = findViewById(R.id.radioBtnCourseUp);
+        RadioButton radioDec = findViewById(R.id.radioBtnDec);
+        RadioButton radioMinDec = findViewById(R.id.radioBtnMinDec);
+        RadioButton radioKmh = findViewById(R.id.radioBtnKmh);
+        RadioButton radioMph = findViewById(R.id.radioBtnMph);
+        RadioButton radioNone = findViewById(R.id.radioBtnNone);
+        RadioButton radioNorthUp = findViewById(R.id.radioBtnNorthUp);
+        RadioButton radioVet = findViewById(R.id.radioBtnVet);
+        RadioButton radioSat = findViewById(R.id.radioBtnSat);
+        RadioButton radioMSDec = findViewById(R.id.radioBtnMSDec);
+        RadioButton radioCourseUp = findViewById(R.id.radioBtnCourseUp);
+        RadioButton radioOn = findViewById(R.id.radioBtnOn);
+        RadioButton radioOff = findViewById(R.id.radioBtnOff);
 
         //Persistindo escolhas dos botões de rádio em SharedPreferences ||
         radioDec.setOnCheckedChangeListener((buttonView, radioDec_isChecked)
@@ -53,10 +51,18 @@ public class ConfigActivity extends AppCompatActivity {
 
         radioSat.setOnCheckedChangeListener((buttonView, radioSat_isChecked)
                 -> SaveIntoSharedPrefs("radioSat", radioSat_isChecked));
+
         radioMSDec.setOnCheckedChangeListener((buttonView, radioMSDec_isChecked)
                 -> SaveIntoSharedPrefs("radioMSDec", radioMSDec_isChecked));
+
         radioCourseUp.setOnCheckedChangeListener((buttonView, radioCourseUp_isChecked)
                 -> SaveIntoSharedPrefs("radioCourseUp", radioCourseUp_isChecked));
+
+        radioOn.setOnCheckedChangeListener((buttonView, radioOn_isChecked)
+                -> SaveIntoSharedPrefs("radioOn", radioOn_isChecked));
+
+        radioOff.setOnCheckedChangeListener((buttonView, radioOff_isChecked)
+                -> SaveIntoSharedPrefs("radioOff", radioOff_isChecked));
 
         //Recuperando estados dos botoes de radio salvos no SharedPreferences ||
         radioDec.setChecked(Update("radioDec"));
@@ -71,6 +77,8 @@ public class ConfigActivity extends AppCompatActivity {
         radioSat.setChecked(Update("radioSat"));
         radioMSDec.setChecked(Update("radioMSDec"));
         radioCourseUp.setChecked(Update("radioCourseUp"));
+        radioOn.setChecked(Update("radioOn"));
+        radioOff.setChecked(Update("radioOff"));
     }
 
     //Metodo que salva os dados no SharedPreferences ||
