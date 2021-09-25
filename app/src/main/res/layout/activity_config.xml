@@ -9,14 +9,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="379dp"
-        android:layout_height="40dp"
+        android:layout_width="367dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/geoCoord_txt"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,13 +23,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="2dp" />
+
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="243dp"
-        android:layout_height="86dp"
+        android:layout_width="309dp"
+        android:layout_height="83dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,8 +48,8 @@
             android:id="@+id/radioBtnDec"
             android:layout_width="wrap_content"
             android:layout_height="27dp"
-            android:textColor="@color/white"
             android:text="@string/grauDecimal_txt"
+            android:textColor="@color/white"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="116dp"
             tools:layout_editor_absoluteX="16dp"
@@ -53,8 +59,8 @@
             android:id="@+id/radioBtnMinDec"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:textColor="@color/white"
             android:text="@string/degree_minute_txt"
+            android:textColor="@color/white"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="162dp"
             tools:layout_editor_absoluteX="16dp"
@@ -64,8 +70,8 @@
             android:id="@+id/radioBtnMSDec"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
-            android:textColor="@color/white"
             android:text="@string/degree_minute_sec_txt"
+            android:textColor="@color/white"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="221dp"
             tools:layout_editor_absoluteX="16dp"
@@ -76,10 +82,9 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="378dp"
+        android:layout_width="358dp"
         android:layout_height="29dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/speedUnit_txt"
         android:textColor="@color/white"
@@ -97,7 +102,6 @@
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -108,15 +112,15 @@
             android:id="@+id/radioBtnKmh"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:textColor="@color/white"
-            android:text="@string/kmh_txt" />
+            android:text="@string/kmh_txt"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/radioBtnMph"
             android:layout_width="209dp"
             android:layout_height="29dp"
-            android:textColor="@color/white"
-            android:text="@string/mph_txt" />
+            android:text="@string/mph_txt"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
@@ -125,7 +129,6 @@
         android:layout_width="187dp"
         android:layout_height="29dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/mapOrientation_txt"
         android:textColor="@color/white"
@@ -139,8 +142,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup6"
-        android:layout_width="396dp"
-        android:layout_height="107dp"
+        android:layout_width="376dp"
+        android:layout_height="127dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
@@ -151,39 +154,31 @@
 
         <RadioButton
             android:id="@+id/radioBtnNone"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:textColor="@color/white"
-            android:text="@string/none_txt" />
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="@string/none_txt"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/radioBtnNorthUp"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:textColor="@color/white"
-            android:text="@string/northUp_txt" />
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:text="@string/northUp_txt"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/radioBtnCourseUp"
             android:layout_width="382dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="@string/courseUp_txt" />
+            android:text="@string/courseUp_txt"
+            android:textColor="@color/white" />
     </RadioGroup>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="104dp"
-        android:layout_height="31dp"
+        android:layout_width="177dp"
+        android:layout_height="29dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/mapType_txt"
         android:textColor="@color/white"
@@ -197,11 +192,10 @@
 
     <RadioGroup
         android:id="@+id/radioGroup10"
-        android:layout_width="305dp"
-        android:layout_height="57dp"
+        android:layout_width="329dp"
+        android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -212,15 +206,15 @@
             android:id="@+id/radioBtnSat"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
-            android:textColor="@color/white"
-            android:text="@string/satImg_txt" />
+            android:text="@string/satImg_txt"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/radioBtnVet"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:textColor="@color/white"
-            android:text="@string/vetorial_txt" />
+            android:text="@string/vetorial_txt"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
@@ -236,13 +230,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup10" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="355dp"
+        android:layout_height="402dp"
         android:layout_marginStart="112dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -251,8 +246,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup9"
-        android:layout_width="271dp"
-        android:layout_height="81dp"
+        android:layout_width="144dp"
+        android:layout_height="76dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -266,15 +261,15 @@
             android:id="@+id/radioBtnOn"
             android:layout_width="match_parent"
             android:layout_height="38dp"
-            android:textColor="@color/white"
-            android:text="@string/on_txt" />
+            android:text="@string/on_txt"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/radioBtnOff"
             android:layout_width="match_parent"
             android:layout_height="38dp"
-            android:textColor="@color/white"
-            android:text="@string/off_txt" />
+            android:text="@string/off_txt"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
@@ -295,7 +290,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:srcCompat="@drawable/logo_channel3" />
