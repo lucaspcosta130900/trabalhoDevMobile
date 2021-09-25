@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.unifacs.practice1">
+    package="br.unifacs.AVN1">
 
     <application
         android:allowBackup="true"
@@ -9,12 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Practice1">
-        <activity android:name=".ConfigActivity"></activity>
-        <activity android:name=".MenuActivity" />
-        <activity
-            android:name=".BlockActivity"
-            android:label="@string/blockActivityLabel"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
+        <activity android:name=".ConfigActivity"
+            android:label="@string/config_txt"></activity>
+        <activity android:name=".SobreActivity"
+            android:label="@string/about_txt"
+            />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package br.unifacs.practice1;
+package br.unifacs.AVN1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         Button botaoNavegacao=(Button) findViewById(R.id.buttonNavegacao);
         botaoConfig.setOnClickListener(this);
         botaoSair.setOnClickListener(this);
+        botaoSobre.setOnClickListener(this);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.buttonSobre:
-                finish();
+                startActivity(new Intent(this,SobreActivity.class));
                 break;
         }
     }

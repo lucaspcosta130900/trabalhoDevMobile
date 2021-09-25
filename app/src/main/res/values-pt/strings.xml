@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="graudecimal_txt">Grau Decimal</string>
+    <string name="geoCoord_txt">Formato de apresentação das coordenadas geográficas:</string>
+    <string name="mapOrientation_txt">Orientação do Mapa:</string>
+    <string name="mapType_txt">Tipo do Mapa:</string>
+    <string name="speedUnit_txt">Unidade de apresentação da velocidade:</string>
+    <string name="kmh_txt">Km/h (quilometro por hora)</string>
+    <string name="mph_txt">Mph (milhas por hora)</string>
+    <string name="none_txt">Nenhuma(O usuário pode escolher manualmente a orientação do mapa)</string>
+    <string name="northUp_txt">North Up (Norte do mapa alinhado com o topo do dispositivo)</string>
+    <string name="courseUp_txt">CourseUp (Topo do mapa alinhado com a direção do deslocamento (rumo-bearing)"</string>
+    <string name="vetorial_txt">Vetorial</string>
+    <string name="satImg_txt">Imagem de Satélite</string>
+    <string name="trafficInfo_txt">Informações de tráfego:</string>
+    <string name="on_txt">Ligado</string>
+    <string name="off_txt">Desligado</string>
+    <string name="grauDecimal_txt">Grau Decimal</string>
     <string name="degree_minute_txt">Grau-Minuto decimal</string>
-    <string name="app_name">Prática 1</string>
+    <string name="degree_minute_sec_txt">Grau-Minuto-Segundo decimal</string>
+    <string name="config_txt">Configuração</string>
+    <string name="about_txt">Sobre Nós</string>
+    <string name="app_name">AvaliaçãoN1</string>
     <string name="usuarioTextView_txt">Usuário</string>
     <string name="senhaTxtView_txt">Senha</string>
     <string name="EntrartextView_txt">Entrar</string>
