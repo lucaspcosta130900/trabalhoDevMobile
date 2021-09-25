@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "br.unifacs.practice1"
+        applicationId "br.unifacs.AVN1"
         minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
