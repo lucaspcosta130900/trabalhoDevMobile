@@ -1,4 +1,4 @@
-package br.unifacs.practice1;
+package br.unifacs.AVN1;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("br.unifacs.practice1", appContext.getPackageName());
+        assertEquals("br.unifacs.AVN1", appContext.getPackageName());
     }
 }
