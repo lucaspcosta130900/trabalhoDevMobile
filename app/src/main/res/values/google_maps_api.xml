@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CHAVE DO MELLO-->
+<resources>
+<string name="google_maps_key" tamplateMergeStrategy="preserve"
+    tarsnlatable="false">AIzaSyClMOXRU9a4jMwyPCtSKKhGSr1tipq6fFw</string>
+
+</resources>
