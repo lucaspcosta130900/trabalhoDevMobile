@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.buttonNavegacao:
-                Intent i = new Intent(this, NavegacaoActivity.class);
+                Intent i = new Intent(this, GoogleMapsActivity.class);
                 startActivity(i);
                 break;
             case R.id.buttonSobre:

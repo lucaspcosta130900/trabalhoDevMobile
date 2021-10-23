@@ -19,19 +19,13 @@
     <string name="degree_minute_txt">Grau-Minuto decimal</string>
     <string name="degree_minute_sec_txt">Grau-Minuto-Segundo decimal</string>
     <string name="app_name">PinOnMe</string>
-    <string name="usuarioTextView_txt">Usuário</string>
-    <string name="senhaTxtView_txt">Senha</string>
-    <string name="EntrartextView_txt">Entrar</string>
-    <string name="CancelTextView_txt">Cancelar</string>
     <string name="buttonConfig_txt">Configuração</string>
     <string name="buttonNavegacao_txt">Navegação</string>
     <string name="buttonGNSS_txt">GNSS</string>
-    <string name="buttonSair_txt">Sair</string>
     <string name="buttonSobre_txt">Sobre</string>
-    <string name="blockActivityLabel">App Bloqueada</string>
     <string name="sobreAplicacao_txt">Essa aplicação pode ser usada para ver um mapa com a localização em tempo real do usuário, com informações à respeito das coordenadas geográficas, velocidade, direção e muito mais!</string>
     <string name="tituloDesenvolvedores_txt">Desenvolvedores:</string>
     <string name="nomeDesenvolvedores_txt">Alex de Souza, Lucas de Mello, Lucas Paiva, Thiago Santos, Vitor Barretto</string>
     <string name="tituloVersao_txt">v2.0 </string>
-    <string name="buttonConfirma_txt">Confirma</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
