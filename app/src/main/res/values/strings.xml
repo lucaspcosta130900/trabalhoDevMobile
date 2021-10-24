@@ -27,5 +27,6 @@
     <string name="tituloDesenvolvedores_txt">Desenvolvedores:</string>
     <string name="nomeDesenvolvedores_txt">Alex de Souza, Lucas de Mello, Lucas Paiva, Thiago Santos, Vitor Barretto</string>
     <string name="tituloVersao_txt">v2.0 </string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps" translatable="false">MapsActivity</string>
+    <string name="coordenadas_and_velocidade" translatable="false">Coordenadas: \n Velocidade:</string>
 </resources>
