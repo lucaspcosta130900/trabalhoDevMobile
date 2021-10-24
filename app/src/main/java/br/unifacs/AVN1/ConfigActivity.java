@@ -1,10 +1,14 @@
 package br.unifacs.AVN1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.RadioButton;
+import android.widget.Switch;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class ConfigActivity extends AppCompatActivity {
 
@@ -24,8 +28,9 @@ public class ConfigActivity extends AppCompatActivity {
         RadioButton radioSat = findViewById(R.id.radioBtnSat);
         RadioButton radioMSDec = findViewById(R.id.radioBtnMSDec);
         RadioButton radioCourseUp = findViewById(R.id.radioBtnCourseUp);
-        RadioButton radioOn = findViewById(R.id.radioBtnOn);
-        RadioButton radioOff = findViewById(R.id.radioBtnOff);
+        //RadioButton radioOn = findViewById(R.id.radioBtnOn);
+        //RadioButton radioOff = findViewById(R.id.radioBtnOff);
+        Switch switchOnOff = findViewById(R.id.switch1);
 
         //Persistindo escolhas dos botões de rádio em SharedPreferences ||
         radioDec.setOnCheckedChangeListener((buttonView, radioDec_isChecked)
@@ -58,11 +63,13 @@ public class ConfigActivity extends AppCompatActivity {
         radioCourseUp.setOnCheckedChangeListener((buttonView, radioCourseUp_isChecked)
                 -> SaveIntoSharedPrefs("radioCourseUp", radioCourseUp_isChecked));
 
-        radioOn.setOnCheckedChangeListener((buttonView, radioOn_isChecked)
-                -> SaveIntoSharedPrefs("radioOn", radioOn_isChecked));
+        switchOnOff.setOnCheckedChangeListener((buttonView, isChecked)
+                ->SaveIntoSharedPrefs("switchOnOff", isChecked));
+        //radioOn.setOnCheckedChangeListener((buttonView, radioOn_isChecked)
+        //        -> SaveIntoSharedPrefs("radioOn", radioOn_isChecked));
 
-        radioOff.setOnCheckedChangeListener((buttonView, radioOff_isChecked)
-                -> SaveIntoSharedPrefs("radioOff", radioOff_isChecked));
+        //radioOff.setOnCheckedChangeListener((buttonView, radioOff_isChecked)
+         //       -> SaveIntoSharedPrefs("radioOff", radioOff_isChecked));
 
         //Recuperando estados dos botoes de radio salvos no SharedPreferences ||
         radioDec.setChecked(Update("radioDec"));
@@ -77,8 +84,9 @@ public class ConfigActivity extends AppCompatActivity {
         radioSat.setChecked(Update("radioSat"));
         radioMSDec.setChecked(Update("radioMSDec"));
         radioCourseUp.setChecked(Update("radioCourseUp"));
-        radioOn.setChecked(Update("radioOn"));
-        radioOff.setChecked(Update("radioOff"));
+        switchOnOff.setChecked(Update("switchOnOff"));
+        //radioOn.setChecked(Update("radioOn"));
+        //radioOff.setChecked(Update("radioOff"));
     }
 
     //Metodo que salva os dados no SharedPreferences ||
