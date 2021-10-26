@@ -39,6 +39,9 @@ public class ConfigActivity extends AppCompatActivity {
         radioMinDec.setOnCheckedChangeListener((buttonView, radioMinDec_isChecked)
                 -> SaveIntoSharedPrefs("radioMinDec", radioMinDec_isChecked));
 
+        radioMSDec.setOnCheckedChangeListener((buttonView, radioMSDec_isChecked)
+                -> SaveIntoSharedPrefs("radioMSDec", radioMSDec_isChecked));
+
         radioKmh.setOnCheckedChangeListener((buttonView, radioKmh_isChecked)
                 -> SaveIntoSharedPrefs("radioKmh", radioKmh_isChecked));
 
@@ -51,17 +54,14 @@ public class ConfigActivity extends AppCompatActivity {
         radioNorthUp.setOnCheckedChangeListener((buttonView, radioNorthUp_isChecked)
                 -> SaveIntoSharedPrefs("radioNorthUp", radioNorthUp_isChecked));
 
+        radioCourseUp.setOnCheckedChangeListener((buttonView, radioCourseUp_isChecked)
+                -> SaveIntoSharedPrefs("radioCourseUp", radioCourseUp_isChecked));
+
         radioVet.setOnCheckedChangeListener((buttonView, radioVet_isChecked)
                 -> SaveIntoSharedPrefs("radioVet", radioVet_isChecked));
 
         radioSat.setOnCheckedChangeListener((buttonView, radioSat_isChecked)
                 -> SaveIntoSharedPrefs("radioSat", radioSat_isChecked));
-
-        radioMSDec.setOnCheckedChangeListener((buttonView, radioMSDec_isChecked)
-                -> SaveIntoSharedPrefs("radioMSDec", radioMSDec_isChecked));
-
-        radioCourseUp.setOnCheckedChangeListener((buttonView, radioCourseUp_isChecked)
-                -> SaveIntoSharedPrefs("radioCourseUp", radioCourseUp_isChecked));
 
         switchOnOff.setOnCheckedChangeListener((buttonView, isChecked)
                 ->SaveIntoSharedPrefs("switchOnOff", isChecked));
@@ -69,7 +69,7 @@ public class ConfigActivity extends AppCompatActivity {
         //        -> SaveIntoSharedPrefs("radioOn", radioOn_isChecked));
 
         //radioOff.setOnCheckedChangeListener((buttonView, radioOff_isChecked)
-         //       -> SaveIntoSharedPrefs("radioOff", radioOff_isChecked));
+        //       -> SaveIntoSharedPrefs("radioOff", radioOff_isChecked));
 
         //Recuperando estados dos botoes de radio salvos no SharedPreferences ||
         radioDec.setChecked(Update("radioDec"));
