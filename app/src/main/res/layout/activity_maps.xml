@@ -10,10 +10,24 @@
     tools:context=".MapsActivity" >
 
     <TextView
-        android:id="@+id/tvStatusBar"
+        android:id="@+id/textLatitude"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="@string/coordenadas_and_velocidade"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvStatusBar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/velocidade"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
@@ -21,42 +35,6 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="499dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="629dp"
-            android:layout_height="287dp"
-            android:layout_marginStart="4dp"
-            android:src="@drawable/bottom_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/circle_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.94"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView13" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="134dp"
-            android:layout_height="134dp"
-            android:src="@drawable/logo_channel3"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-            app:layout_constraintEnd_toEndOf="@+id/imageView14"
-            app:layout_constraintStart_toStartOf="@+id/imageView14"
-            app:layout_constraintTop_toTopOf="@+id/imageView14" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="464dp" />
 
 </LinearLayout>
