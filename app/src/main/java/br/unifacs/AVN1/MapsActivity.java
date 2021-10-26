@@ -180,7 +180,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     sharedPrefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                     textLatitude.setText("Latitude: " + String.valueOf(location.getLatitude()));
                     textLongitude.setText("Longitude: " +String.valueOf(location.getLongitude()));
-
                 }
             }
 
@@ -196,114 +195,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
-    public String coordenadas(double lat){
-        double valGrau, valMin, valSeg, auxSeg = 0;
-        String result = "";
-        String retorno = "";
-        String identificador = "COORDENADA";
-        String identificador2 = "COORDENADA2";
-        String identificador3 = "COORDENADA3";
-        double aux = lat;
-
-        lat = Math.abs(lat);
-
-        Boolean Coordenada2 = sharedPrefs.getBoolean("Coordenada_2", false);
-        Boolean Coordenada3 = sharedPrefs.getBoolean("Coordenada_3", false);
-
-        if(Coordenada2 == false && Coordenada3 == false){
-            //para grau
-            lat = Math.abs(lat);
-
-            valGrau = Math.floor(lat);
-            result = formatarFloat(valGrau, identificador) + "º";
-
-            auxSeg = Math.floor((lat - valGrau) * 60);
-            valMin = Math.floor((lat - valGrau) * 60) / 60;
-            result += formatarFloat(valMin, identificador2);
-
-            valSeg = (Math.floor((lat - valGrau - auxSeg / 60) * 3600 * 1000) / 1000) / 3600;
-            result += formatarFloat(valSeg, identificador3);
-        }
-
-        if(Coordenada2 == true){
-            //para grau e minutos
-            valGrau = Math.floor(lat);
-            result = formatarFloat(valGrau, identificador) + "º";
-
-            valMin = Math.floor((lat - valGrau) * 60);
-            result += formatarFloat(valMin, identificador) + ".";
-
-            valSeg = (Math.floor((lat - valGrau - valMin / 60) * 3600 * 1000) / 1000) / 3600;
-            result += formatarFloat(valSeg, identificador3) + "'";
-        }
-
-        if(Coordenada3 == true){
-            //para grau, minutos e segundos
-            valGrau = Math.floor(lat);
-            result = formatarFloat(valGrau, identificador) + "º";
-
-            valMin = Math.floor((lat - valGrau) * 60);
-            result += formatarFloat(valMin, identificador) + "'";
-
-            valSeg = Math.round((lat - valGrau - valMin / 60) * 3600 * 1000) / 1000;
-            result += formatarFloat(valSeg, identificador) + "''";
-        }
-        if(aux <= -0){
-            retorno = "-" + result;
-        }
-        else{
-            retorno = result;
-        }
-        return retorno;
-    }
-
-    public String formatarFloat(double numero, String identificador){
-        String retorno = "";
-        if(identificador.equals("VELOCIDADE")){
-            DecimalFormat formatter = new DecimalFormat("0.00");
-            try{
-                retorno = formatter.format(numero);
-            }catch(Exception ex){
-                System.err.println("Erro ao formatar numero: " + ex);
-            }
-        }
-        if(identificador.equals("COORDENADA")){
-            DecimalFormat formatter = new DecimalFormat("00");
-            try{
-                retorno = formatter.format(numero);
-            }catch(Exception ex){
-                System.err.println("Erro ao formatar numero: " + ex);
-            }
-        }
-        if(identificador.equals("COORDENADA2")){
-            DecimalFormat formatter = new DecimalFormat("#.00");
-            try{
-                retorno = formatter.format(numero);
-                retorno = retorno.replace(",", "");
-            }catch(Exception ex){
-                System.err.println("Erro ao formatar numero: " + ex);
-            }
-        }
-        if(identificador.equals("COORDENADA3")){
-            DecimalFormat formatter = new DecimalFormat("#.000");
-            try{
-                retorno = formatter.format(numero);
-                retorno = retorno.replace(",", "");
-            }catch(Exception ex){
-                System.err.println("Erro ao formatar numero: " + ex);
-            }
-        }
-        return retorno;
-    }
-
-    public void getShared(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES, MODE_PRIVATE);
-
-        cordenada = sharedPreferences.getString("cordenadas", "unknown");
-        velocidade = sharedPreferences.getString("velocidade", "unknown");
-        orientacao = sharedPreferences.getString("orientacao ", "unknown");
-        trafego = sharedPreferences.getString("trafegon", "unknown");
-        tipo = sharedPreferences.getString("tipo", "unknown");
-    }
 
 }
