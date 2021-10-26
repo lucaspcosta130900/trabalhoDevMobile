@@ -48,9 +48,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private TextView textLatitude, textLongitude, textVelocidade;
     private SharedPreferences sharedPrefs;
-    List<Location> local = new ArrayList<Location>();
-    private String cordenada, velocidade, orientacao, trafego, tipo;
-    public static final String SHARED_PREFES = "sharedPrefes";
     //private ActivityMapsBinding binding;
 
     @Override
