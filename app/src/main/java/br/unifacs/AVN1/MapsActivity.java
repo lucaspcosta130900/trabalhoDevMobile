@@ -66,7 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         sharedPrefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         textLatitude = (TextView) findViewById(R.id.textLatitude);
         textLongitude = (TextView) findViewById(R.id.textLongitude);
-        //textVelocidade = (TextView) findViewById(R.id.text_Velocidade);
+        textVelocidade = (TextView) findViewById(R.id.textVelocidade);
     }
 
     /**
@@ -177,6 +177,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     sharedPrefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                     textLatitude.setText("Latitude: " + String.valueOf(location.getLatitude()));
                     textLongitude.setText("Longitude: " +String.valueOf(location.getLongitude()));
+                    textVelocidade.setText("Velocidade: " + String.valueOf(location.getSpeed()));
                 }
             }
 

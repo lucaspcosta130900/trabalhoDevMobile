@@ -24,8 +24,8 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/tvStatusBar3"
-        android:layout_width="wrap_content"
+        android:id="@+id/textVelocidade"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/velocidade"
         android:textColor="@color/white"
