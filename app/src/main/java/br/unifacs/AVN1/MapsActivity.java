@@ -39,6 +39,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 //import br.unifacs.AVN1.databinding.ActivityMapsBinding;
 
@@ -46,11 +47,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     FusedLocationProviderClient client;
     private GoogleMap mMap;
-    private TextView textLatitude, textLongitude, textVelocidade;
+    private TextView textCoordenadas, textVelocidade;
     private SharedPreferences sharedPrefs;
+    private double latitude;
+    private double longitude;
+    private boolean velocidade, mapaSatelite, isTrafegoOn, grau, grauMinuto, grauMinutoSegundo;
+    private String texto;
     //private ActivityMapsBinding binding;
 
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client = LocationServices.getFusedLocationProviderClient(this);
@@ -63,9 +68,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        sharedPrefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        textLatitude = (TextView) findViewById(R.id.textLatitude);
-        textLongitude = (TextView) findViewById(R.id.textLongitude);
+        sharedPrefs = getSharedPreferences("Seetings", Context.MODE_PRIVATE);
+        textCoordenadas = (TextView) findViewById(R.id.textCoordenadas);
         textVelocidade = (TextView) findViewById(R.id.textVelocidade);
     }
 
@@ -111,10 +115,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             mMap.setMinZoomPreference(12.0f);
                             mMap.setMaxZoomPreference(40.0f);
 
-                            mMap.setMyLocationEnabled(true);
                             mMap.getUiSettings().setMyLocationButtonEnabled(true);
                             mMap.getUiSettings().setZoomControlsEnabled(true);
                             mMap.getUiSettings().isRotateGesturesEnabled();
+
+                            mapaSatelite = sharedPrefs.getBoolean("radioSat", true);
+                            if(mapaSatelite){
+                                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                            } else mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+                            isTrafegoOn = sharedPrefs.getBoolean("switchOnOff", true);
+                            if(isTrafegoOn){
+                                mMap.setTrafficEnabled(true);
+                            }else mMap.setTrafficEnabled(false);
 
                             LatLng actualLocation = new LatLng(location.getLatitude(), location.getLongitude());
                             mMap.addMarker(new MarkerOptions().position(actualLocation).title("Localização Atual"));
@@ -174,10 +187,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 for(Location location : locationResult.getLocations()) {
                     Log.i("Teste 2", location.getLatitude() + "");
-                    sharedPrefs = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                    textLatitude.setText("Latitude: " + String.valueOf(location.getLatitude()));
-                    textLongitude.setText("Longitude: " +String.valueOf(location.getLongitude()));
-                    textVelocidade.setText("Velocidade: " + String.valueOf(location.getSpeed()));
+                    sharedPrefs = getSharedPreferences("Seetings", Context.MODE_PRIVATE);
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+                    String NorthOrSouth = (int)latitude >= 0 ? " N" : " S";
+                    String EastOrWest = (int)longitude >= 0 ? " E" : " W";
+                    grau = sharedPrefs.getBoolean("radioDec", true);
+                    grauMinuto = sharedPrefs.getBoolean("radioMinDec", true);
+                    grauMinutoSegundo = sharedPrefs.getBoolean("radioMSDec", true);
+                    if(grau) {
+                        int latOnlyGrau = (int)latitude;
+                        int lonOnlyGrau = (int)longitude;
+                        textCoordenadas.setText("  Coordenadas: " + latOnlyGrau + NorthOrSouth + ";  " + lonOnlyGrau + EastOrWest);
+                    }else if (grauMinuto) {
+                        String strLatitude = Location.convert(location.getLatitude(), Location.FORMAT_MINUTES).replace(":","° ") + "\'" +NorthOrSouth;
+                        String strLongitude = Location.convert(location.getLongitude(), Location.FORMAT_MINUTES).replace(":","° ") + "\'" + EastOrWest;
+                        textCoordenadas.setText("  Coordenadas: " + strLatitude + ";  " + strLongitude);
+                    }
+                    else if (grauMinutoSegundo) {
+                        String strLatitudeSeconds = Location.convert(location.getLatitude(), Location.FORMAT_SECONDS).replaceFirst(":","° ").replace(":","\' ").replace(",",".") + "\" " + NorthOrSouth;
+                        String strLongitudeSeconds = Location.convert(location.getLongitude(), Location.FORMAT_SECONDS).replaceFirst(":","° ").replace(":","\' ").replace(",",".") + "\" " + EastOrWest;
+                        textCoordenadas.setText("  Coordenadas: " + strLatitudeSeconds + "  \n                              " + strLongitudeSeconds);
+                    }
+                    velocidade = sharedPrefs.getBoolean("radioKmh", true);
+                    texto= String.valueOf(location.getSpeed());
+                    if(velocidade){
+                        textVelocidade.setText("  Velocidade: " + texto + " Km/h\n");
+                    }else textVelocidade.setText("  Velocidade: " + texto + " Mph\n");
+
                 }
             }
 
@@ -187,11 +224,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         };
         client.requestLocationUpdates(locationRequest, locationCallback, null);
-        // Add a marker in Sydney and move the camera
+//        Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
 //        googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
-
+//        case "Grau-Minuto decimal":
+//            String strLatitude = Location.convert(location.getLatitude(), Location.FORMAT_MINUTES).replace(":","° ").replace(",","\' ") + latSN;
+//            String strLongitude = Location.convert(location.getLongitude(), Location.FORMAT_MINUTES).replace(":","° ").replace(",","\' ") + lonEW;
+//            longLat.setText("LATITUDE: " + strLatitude + "\n\n" + "LONGITUDE: " + strLongitude + "\n");
+//            break;
+//        case "Grau-Minuto-Segundo decimal":
+//            String strLatitudeSeconds = Location.convert(location.getLatitude(), Location.FORMAT_SECONDS).replaceFirst(":","° ").replace(":","\' ").replace(",",".") + "\" " + latSN;
+//            String strLongitudeSeconds = Location.convert(location.getLongitude(), Location.FORMAT_SECONDS).replaceFirst(":","° ").replace(":","\' ").replace(",",".") + "\" " + lonEW;
+//            longLat.setText("LATITUDE: " + strLatitudeSeconds + "\n\n" + "LONGITUDE: " + strLongitudeSeconds + "\n");
+//            break;
+//        case "Grau decimal":
+//            longLat.setText("LATITUDE: " + latitude + "\n\n" + "LONGITUDE: " + longitude + "\n");
+//            break;
 
 }
