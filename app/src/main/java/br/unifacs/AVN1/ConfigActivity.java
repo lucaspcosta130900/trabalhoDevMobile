@@ -84,7 +84,6 @@ public class ConfigActivity extends AppCompatActivity {
         radioNone.setChecked(Update("radioNone"));
         radioNorthUp.setChecked(Update("radioNorthUp"));
         radioNone.setChecked(Update("radioNone"));
-        radioNorthUp.setChecked(Update("radioNorthUp"));
         radioVet.setChecked(Update("radioVet"));
         radioSat.setChecked(Update("radioSat"));
         radioMSDec.setChecked(Update("radioMSDec"));
