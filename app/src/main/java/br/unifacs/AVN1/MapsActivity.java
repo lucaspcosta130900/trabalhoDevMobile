@@ -215,6 +215,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(actualLocation, 19));
                     }
                     if (courseUp == true) {
+                        mMap.getUiSettings().setRotateGesturesEnabled(false);
                         CameraPosition cameraPosition = new CameraPosition.Builder()
                                 .target(actualLocation)
                                 .bearing(rotacao)
