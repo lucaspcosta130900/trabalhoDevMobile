@@ -202,7 +202,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     circulo = mMap.addCircle(new CircleOptions()
                             .center(actualLocation)
                             .radius(18)
-                            .strokeColor(R.color.black)
+                            .strokeColor(R.color.purple_700)
                             .fillColor(R.color.black)
                             .strokeWidth(location.getAccuracy())
                     );
