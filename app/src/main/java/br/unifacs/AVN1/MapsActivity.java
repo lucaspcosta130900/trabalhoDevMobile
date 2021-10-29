@@ -18,7 +18,6 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,9 +30,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-
-//import br.unifacs.AVN1.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -41,23 +37,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private TextView textCoordenadas, textVelocidade;
     private SharedPreferences sharedPrefs;
-    private double latitude;
-    private double longitude;
-    private boolean velocidade, mapaSatelite, isTrafegoOn, grau, grauMinuto, grauMinutoSegundo, courseUp, northUp, semOrientacao;
+    private double latitude, longitude;
+    private boolean courseUp, northUp;
     private String texto;
     private Marker marker;
     private Circle circulo = null;
-    //private ActivityMapsBinding binding;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client = LocationServices.getFusedLocationProviderClient(this);
 
-        //binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_maps);
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -77,6 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
+        boolean mapaSatelite, isTrafegoOn;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -89,9 +81,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         isTrafegoOn = sharedPrefs.getBoolean("switchOnOff", true);
-        if (isTrafegoOn) {
-            mMap.setTrafficEnabled(true);
-        } else mMap.setTrafficEnabled(false);
+        mMap.setTrafficEnabled(isTrafegoOn);
     }
 
     @Override
@@ -99,36 +89,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onResume();
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
 
         client.getLastLocation()
-                .addOnSuccessListener(new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        if (location == null) {
-                            LatLng sydney = new LatLng(-34,151);
-                            mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sidney"));
-                            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                            textCoordenadas.setText("coordenadas(-33.87365)");
-                            velocidade = sharedPrefs.getBoolean("radioKmh", true);
-                               if(velocidade){
-                                    textVelocidade.setText("  Velocidade: 0 Km/h\n");
-                                }else textVelocidade.setText("  Velocidade: 0 Mph\n");
-                            LatLng cidade = new LatLng(-33.87365, 151.20689);
-                            mMap.addMarker(new MarkerOptions()
-                                    .position(cidade)
-                                    .title("Local padrão")
-                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow)));
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cidade, 15));
-                        }
+                .addOnSuccessListener(location -> {
+                    if (location == null) {
+
+                        LatLng sydney = new LatLng(-34,151);
+                        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sidney"));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                        textCoordenadas.setText("Coordenadas: -34 S, 151 W");
+                        textVelocidade.setText("  Velocidade: 0 Km/h\n");
+                        LatLng cidade = new LatLng(-33.87365, 151.20689);
+                        mMap.addMarker(new MarkerOptions()
+                                .position(cidade)
+                                .title("Local padrão")
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow)));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cidade, 15));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -143,9 +121,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationRequest.setFastestInterval(2 * 1000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(locationRequest);
-
         final LocationCallback locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
@@ -153,7 +128,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     return;
                 }
                 for (Location location : locationResult.getLocations()) {
-
+                    boolean velocidade, grau, grauMinuto, grauMinutoSegundo, semOrientacao;
                     sharedPrefs = getSharedPreferences("Seetings", Context.MODE_PRIVATE);
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
@@ -185,7 +160,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     LatLng actualLocation = new LatLng(location.getLatitude(), location.getLongitude());
                     float rotacao = location.getBearing();
-                    rotacao = rotacao;
 
                     if (marker != null) {
                         marker.remove();
@@ -209,12 +183,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     courseUp = sharedPrefs.getBoolean("radioCourseUp", true);
                     northUp = sharedPrefs.getBoolean("radioNorthUp", true);
-                    semOrientacao = sharedPrefs.getBoolean("radioNone", true);
-                    if (northUp == true) {
+                    if (northUp) {
                         mMap.getUiSettings().setRotateGesturesEnabled(false);
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(actualLocation, 19));
                     }
-                    if (courseUp == true) {
+                    if (courseUp) {
                         mMap.getUiSettings().setRotateGesturesEnabled(false);
                         CameraPosition cameraPosition = new CameraPosition.Builder()
                                 .target(actualLocation)
@@ -223,7 +196,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .build();
                         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), null);
                     }
-                    if (courseUp == false && northUp == false) {
+                    if (!courseUp && !northUp) {
                         mMap.getUiSettings().setRotateGesturesEnabled(true);
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(actualLocation, 19));
                     }
