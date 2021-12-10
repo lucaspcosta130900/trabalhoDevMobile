@@ -40,11 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button botaoConfig = (Button) findViewById(R.id.buttonConfig);
-        Button botaoSair = (Button) findViewById(R.id.buttonGNSS);
+        Button botaoGnss = (Button) findViewById(R.id.buttonGNSS);
         Button botaoSobre = (Button) findViewById(R.id.buttonSobre);
+        Button botaoHistorico = (Button) findViewById(R.id.buttonHistorico);
         Button botaoNavegacao = (Button) findViewById(R.id.buttonNavegacao);
+        botaoHistorico.setOnClickListener(this);
         botaoConfig.setOnClickListener(this);
-        botaoSair.setOnClickListener(this);
+        botaoGnss.setOnClickListener(this);
         botaoSobre.setOnClickListener(this);
         botaoNavegacao.setOnClickListener(this);
 
@@ -64,17 +66,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonConfig:
-                startActivity(new Intent(this,ConfigActivity.class));
+                Intent c = new Intent(this, ConfigActivity.class);
+                startActivity(c);
                 break;
             case R.id.buttonGNSS:
-                finish();
+                Intent g = new Intent(this, GnssActivity.class);
+                startActivity(g);
+                break;
+            case R.id.buttonHistorico:
+                Intent h = new Intent(this, HistoricoActivity.class);
+                startActivity(h);
                 break;
             case R.id.buttonNavegacao:
-                Intent i = new Intent(this, MapsActivity.class);
-                startActivity(i);
+                Intent n = new Intent(this, MapsActivity.class);
+                startActivity(n);
                 break;
             case R.id.buttonSobre:
-                startActivity(new Intent(this,SobreActivity.class));
+                Intent s = new Intent(this, SobreActivity.class);
+                startActivity(s);
                 break;
         }
     }

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="grauDecimal_txt">Grau Decimal</string>
     <string name="geoCoord_txt">Formato de apresentação das coordenadas geográficas:</string>
     <string name="trafficInfo_txt">Informações de tráfego:</string>
@@ -21,6 +21,7 @@
     <string name="app_name">PinOnMe</string>
     <string name="buttonConfig_txt">Configuração</string>
     <string name="buttonNavegacao_txt">Navegação</string>
+    <string name="buttonHistorico_txt" tools:ignore="DuplicateDefinition" translatable="false">Histórico</string>
     <string name="buttonGNSS_txt">GNSS</string>
     <string name="buttonSobre_txt">Sobre</string>
     <string name="sobreAplicacao_txt">Essa aplicação pode ser usada para ver um mapa com a localização em tempo real do usuário, com informações à respeito das coordenadas geográficas, velocidade, direção e muito mais!</string>
@@ -31,4 +32,9 @@
     <string name="longitude" translatable="false">Longitude:</string>
     <string name="latitude" translatable="false">Latitude:</string>
     <string name="velocidade" translatable="false">Velocidade:</string>
+    <string name="longitudeGnss" translatable="false">Longitude:</string>
+    <string name="latitudeGnss" translatable="false">Latitude:</string>
+    <string name="velocidadeGnss" translatable="false">Velocidade:</string>
+    <string name="bearingGnss" translatable="false">Bearing:</string>
+    <string name="txtTituloLog" translatable="false">Histórico de Localizações:</string>
 </resources>
